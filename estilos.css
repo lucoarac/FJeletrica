@@ -1,0 +1,373 @@
+/* === GERAL === */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url("imagens/fundo1.jpg") no-repeat center top fixed;
+  background-size: cover;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+/* === HEADER === */
+.header-novo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #181e2a;
+  padding: 24px 36px 18px 36px;
+  border-bottom: 3px solid #005eff;
+}
+
+.header-fotos-slider {
+  width: 60%;
+  height: 300px; /* ajuste aqui a altura ideal */
+  overflow: hidden;
+  position: relative;
+}
+
+.slide-foto {
+  position: absolute;
+  top: 0; left: 0;
+  width: 90%; height: 140%;
+  background-size: cover;       /* mantém padrão */
+  background-position: center;  /* pode trocar para top ou bottom */
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.slide-foto.active {
+  opacity: 1;
+}
+
+.header-info-direita {
+  width: 40%;
+  text-align: center;
+}
+
+.header-info-direita h1,
+.header-info-direita h2,
+.header-info-direita p {
+  margin-top: 4px;      /* diminui espaço acima */
+  margin-bottom: 4px;   /* diminui espaço abaixo */
+  line-height: 1.2;     /* aproxima as linhas */
+}
+
+.logo-fj img {
+  height: 140px;  /* aumenta a altura */
+  width: 280px;   /* aumenta a largura */
+}
+
+.dica-eletrica {
+  background: rgba(240, 196, 25, 0.9); /* amarelo quase sólido */
+  padding: 4px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+/* === SEÇÕES GERAIS === */
+section {
+  max-width: 1340px;        /* largura máxima da caixa */
+  width: 100%;              /* ocupa até o limite, mas não a tela toda */
+  box-sizing: border-box;
+  padding: 40px 20px;
+  margin: 40px auto;        /* centraliza e cria espaço entre as sections */
+  background-color: rgba(0, 0, 0, 1); /* caixa escura */
+  border-top: 3px solid #005eff;
+  border-bottom: 3px solid #005eff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* Títulos principais das sections */
+section {
+  padding: 15px 20px 30px 20px; /* menos espaço no topo */
+}
+section h1,
+section h2,
+section h3 {
+  color: #005eff;      /* azul do cabeçalho */
+  font-size: 1.6em;      /* tamanho do título */
+  margin-top: -5px;        /* gruda no topo da caixa */
+  margin-bottom: 10px; /* espaço abaixo do título */
+  text-align: left;     /* alinhado à esquerda */
+  font-weight: bold;
+}
+
+section p, section ul {
+  font-size: 1.3em;
+  line-height: 1.8em;
+  color: #fff; /* texto claro para contraste */
+}
+
+/* === SERVIÇOS === */
+.servicos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;                  /* centraliza */
+  max-width: 1000px;               /* largura máxima */
+  display: grid;                   /* organiza em grid */
+  grid-template-columns: repeat(2, minmax(240px, 1fr)); /* duas colunas */
+  gap: 6px;                       /* espaço entre as caixas */
+}
+
+.servicos li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(0, 0, 0, 0.5); /* fundo da caixa */
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  font-size: 0.9em;
+  line-height: 1.4em;    /* linhas mais próximas */
+  text-align: left;
+}
+
+/* Check automático antes de cada item */
+.servicos li::before {
+  content: "✓";
+  color: #00d4ff;   /* azul chamativo */
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Responsivo: no celular vira uma coluna */
+@media (max-width: 768px) {
+  .servicos ul {
+    grid-template-columns: 1fr;
+    max-width: 580px;
+  }
+}
+
+/* === TRABALHOS === */
+.trabalhos img,
+.trabalhos video {
+  width: 180px;
+  height: 120px;          /* altura fixa */
+  object-fit: cover;      /* corta e ajusta para caber */
+  margin: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
+/* === CLIENTES SATISFEITOS === */
+.clientes-satisfeitos {
+  padding: 15px 20px;
+  max-width: 1340px;   /* igual às outras sections */
+  margin: 20px auto;   /* centraliza e mantém proporção */
+}
+
+/* Container interno */
+.avaliacoes-container {
+  display: flex;
+  flex-wrap: wrap;       /* no celular quebra em coluna */
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: flex-start;    /* agora tudo gruda à esquerda */
+  max-width: 1000px;
+  margin-left: 0;   /* gruda na esquerda */
+}
+
+/* Formulário compacto */
+.avaliacao {
+  flex: 1 1 240px;
+  max-width: 260px;
+  color: #fff;
+  margin-top: 15px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.4);
+}
+
+.avaliacao input,
+.avaliacao select,
+.avaliacao textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+.avaliacao button {
+  margin-top: 10px;
+  background: #005eff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.avaliacao button:hover {
+  background: #003b99;
+}
+
+/* Comentários em coluna, próximos */
+.comentarios {
+  flex: 2 1 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;   /* espaço entre comentários */
+  max-width: 600px;
+}
+
+/* Cada comentário */
+.cliente {
+  display: flex;
+  align-items: flex-start;
+  background: transparent;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  text-align: left;
+  max-width: 100%;
+}
+
+.cliente .avatar {
+  font-size: 42px;
+  margin-right: 10px;
+}
+
+.cliente .mensagem {
+  background: #f9f9f9;
+  color: #000;
+  padding: 12px 16px;
+  border-radius: 10px;
+  max-width: 300px;
+  border-left: 5px solid #005eff;
+  text-align: left;
+}
+
+.cliente.mulher .mensagem {
+  border-left-color: #ff00aa;
+}
+
+/* === FORMULÁRIO DE ORÇAMENTO === */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  /* ajustes novos */
+  max-width: 1400px;        /* largura máxima da caixa */
+  margin: 0 auto;          /* centraliza no meio da tela */
+  background: rgba(0,0,0,0.6); /* fundo escuro translúcido */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Botão estilo WhatsApp */
+.formulario button {
+  background: #25D366;   /* verde oficial do WhatsApp */
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.formulario button:hover {
+  background: #1ebe5d;   /* verde mais escuro no hover */
+}
+
+/* === SEÇÃO DE ORÇAMENTO === */
+.orcamento {
+  max-width: 1340px;   /* largura máxima da caixa */
+  margin: 40px auto; /* ✅ espaço entre seções */
+  padding: 15px 20px;
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.menu-navegacao {
+  display: flex;
+  flex-wrap: nowrap;     /* impede quebrar para baixo */
+  justify-content: center;
+  gap: 10px;
+  background-color: #181e2a;
+  padding: 6px 12px;
+  border-top: 3px solid #005eff;
+  border-bottom: 3px solid #005eff;
+}
+
+.menu-navegacao a {
+  color: #00d4ff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  white-space: nowrap;   /* impede que o texto quebre em duas linhas */
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.menu-navegacao a:hover {
+  background-color: #005eff;
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* === UTILITÁRIOS DE TEXTO (EXTRA) === */
+/* Estes estilos não substituem nada existente, só funcionam quando você aplicar no HTML */
+
+/* Cores extras */
+.text-branco   { color: #ffffff !important; }
+.text-azul     { color: #00d4ff !important; }
+.text-amarelo  { color: #f0c419 !important; }
+.text-verde    { color: #25D366 !important; }
+.text-vermelho { color: #ff4444 !important; }
+
+/* Tamanhos extras */
+.text-16 { font-size: 1em !important; }
+.text-20 { font-size: 1.25em !important; }
+.text-24 { font-size: 1.5em !important; }
+.text-28 { font-size: 1.75em !important; }
+.text-32 { font-size: 2em !important; }
+
+/* Destaques */
+.text-neon-azul {
+  color: #00d4ff !important;
+  text-shadow: 0 0 6px #00d4ff;
+}
+.text-neon-amarelo {
+  color: #f0c419 !important;
+  text-shadow: 0 0 4px #f0c419;
+}
+.text-bold   { font-weight: 700 !important; }
+.text-italic { font-style: italic !important; }
+.text-center { text-align: center !important; }
+
+
+/* === RODAPÉ === */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #222;
+  color: white;
+  border-top: 3px solid #005eff;
+}

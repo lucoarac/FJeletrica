@@ -1,0 +1,6 @@
+<svg width="130" height="80" viewBox="0 0 130 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="65" cy="40" rx="50" ry="35" fill="#fff" stroke="#2D3A60" stroke-width="6"/>
+  <path d="M30 65 Q40 15 110 30" stroke="#2D3A60" stroke-width="10" fill="none"/>
+  <path d="M70 25 Q110 30 100 60 Q90 80 60 65" fill="#FFC72C"/>
+  <text x="76" y="62" text-anchor="middle" font-size="38" font-family="Arial" font-weight="bold" fill="#2D3A60" dominant-baseline="middle">J</text>
+</svg>
