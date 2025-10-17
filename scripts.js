@@ -58,11 +58,13 @@ function enviarAvaliacao() {
   container.appendChild(avatar);
   container.appendChild(msg);
 
-  const section = document.querySelector(".clientes-satisfeitos");
-  section.insertBefore(container, section.querySelector(".avaliacao"));
+  // ✅ Aqui está a mudança: adiciona dentro da div .comentarios
+  const comentariosDiv = document.querySelector(".comentarios");
+  comentariosDiv.appendChild(container);
 
   document.getElementById("formAvaliacao").reset();
   alert("Avaliação enviada com sucesso!");
   return false;
 }
+
 

@@ -21,7 +21,7 @@ body {
 
 .header-fotos-slider {
   width: 60%;
-  height: 300px; /* ajuste aqui a altura ideal */
+  height: 320px; /* ajuste aqui a altura ideal */
   overflow: hidden;
   position: relative;
 }
@@ -211,11 +211,11 @@ section p, section ul {
 
 /* Comentários em coluna, próximos */
 .comentarios {
-  flex: 2 1 400px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 12px;   /* espaço entre comentários */
   max-width: 600px;
+  flex: 2 1 400px;
 }
 
 /* Cada comentário */
@@ -370,4 +370,80 @@ footer {
   background: #222;
   color: white;
   border-top: 3px solid #005eff;
+}
+
+/* === RESPONSIVIDADE PARA CELULAR === */
+@media (max-width: 768px) {
+  /* Header adaptável */
+  .header-novo {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .header-fotos-slider {
+    width: 100%;
+    height: 200px;
+  }
+
+  .header-info-direita {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .logo-fj img {
+    width: 200px;
+    height: auto;
+  }
+
+  /* Menu de navegação adaptável */
+  .menu-navegacao {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .menu-navegacao a {
+    flex: 1 1 100%;
+    text-align: center;
+    padding: 8px;
+  }
+
+  /* Seções com menos margem */
+  section {
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  section h1, section h2, section h3 {
+    font-size: 1.4em;
+  }
+
+  section p, section ul {
+    font-size: 1.1em;
+  }
+
+  /* Área de avaliações adaptável */
+  .avaliacoes-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .comentarios {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .avaliacao {
+    max-width: 100%;
+  }
+
+  /* Formulário de orçamento adaptável */
+  .formulario {
+    padding: 16px;
+  }
+
+  .formulario button {
+    font-size: 14px;
+    padding: 10px;
+  }
 }
