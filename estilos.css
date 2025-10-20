@@ -446,4 +446,32 @@ footer {
     font-size: 14px;
     padding: 10px;
   }
+
+/* === Ajustes responsivos para mobile === */
+@media (max-width: 768px) {
+
+  /* Problema 1 — Cabeçalho (carrossel ou imagens de topo) */
+  .slide-foto img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Problema 2 — Trabalhos e Projetos Realizados */
+  #trabalhos .slider-imagens {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-items: center;
+  }
+
+  #trabalhos .slider-imagens img,
+  #trabalhos .slider-imagens video {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
 }
+
+
