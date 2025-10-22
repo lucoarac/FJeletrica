@@ -374,6 +374,12 @@ footer {
 
 /* === RESPONSIVIDADE PARA CELULAR === */
 @media (max-width: 768px) {
+  .slide-foto {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
   /* Header adaptável */
   .header-novo {
     flex-direction: column;
@@ -445,14 +451,6 @@ footer {
   .formulario button {
     font-size: 14px;
     padding: 10px;
-  }
-
-  /* Cabeçalho (carrossel ou imagens de topo) */
-  .slide-foto img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
   }
 
   /* Trabalhos e Projetos Realizados */
