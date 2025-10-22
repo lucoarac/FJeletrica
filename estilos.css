@@ -446,11 +446,8 @@ footer {
     font-size: 14px;
     padding: 10px;
   }
-}
-/* === Ajustes responsivos para mobile === */
-@media (max-width: 768px) {
 
-  /* Problema 1 — Cabeçalho (carrossel ou imagens de topo) */
+  /* Cabeçalho (carrossel ou imagens de topo) */
   .slide-foto img {
     width: 100%;
     height: auto;
@@ -458,16 +455,16 @@ footer {
     margin: 0 auto;
   }
 
-  /* Problema 2 — Trabalhos e Projetos Realizados */
-  #trabalhos .slider-imagens {
+  /* Trabalhos e Projetos Realizados */
+  #trabalhos .trabalhos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     justify-items: center;
   }
 
-  #trabalhos .slider-imagens img,
-  #trabalhos .slider-imagens video {
+  #trabalhos .trabalhos img,
+  #trabalhos .trabalhos video {
     width: 100%;
     height: auto;
     margin: 0;
