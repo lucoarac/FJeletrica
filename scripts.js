@@ -67,5 +67,28 @@ function enviarAvaliacao() {
   return false;
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.querySelector("#trabalhos .trabalhos");
+
+  // cria botões
+  const prev = document.createElement("button");
+  const next = document.createElement("button");
+  prev.textContent = "◀";
+  next.textContent = "▶";
+  prev.className = "slider-btn prev";
+  next.className = "slider-btn next";
+
+  container.parentElement.appendChild(prev);
+  container.parentElement.appendChild(next);
+
+  // evento de clique
+  prev.addEventListener("click", () => {
+    container.scrollBy({ left: -200, behavior: "smooth" });
+  });
+  next.addEventListener("click", () => {
+    container.scrollBy({ left: 200, behavior: "smooth" });
+  });
+});
+
 
 
