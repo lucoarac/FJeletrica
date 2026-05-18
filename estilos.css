@@ -1,4 +1,14 @@
 /* === GERAL === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -7,6 +17,12 @@ body {
   background-size: cover;
   color: #f0f0f0;
   line-height: 1.6;
+  min-height: 100vh;
+}
+
+img,
+video {
+  max-width: 100%;
 }
 
 /* === HEADER === */
@@ -17,6 +33,7 @@ body {
   background: #181e2a;
   padding: 24px 36px 18px 36px;
   border-bottom: 3px solid #005eff;
+  gap: 28px;
 }
 
 .header-fotos-slider {
@@ -24,12 +41,14 @@ body {
   height: 320px; /* ajuste aqui a altura ideal */
   overflow: hidden;
   position: relative;
+  background: #0d111a;
+  border-radius: 8px;
 }
 
 .slide-foto {
   position: absolute;
   top: 0; left: 0;
-  width: 90%; height: 140%;
+  width: 100%; height: 100%;
   background-size: cover;       /* mantém padrão */
   background-position: center;  /* pode trocar para top ou bottom */
   background-repeat: no-repeat;
@@ -44,6 +63,7 @@ body {
 .header-info-direita {
   width: 40%;
   text-align: center;
+  min-width: 300px;
 }
 
 .header-info-direita h1,
@@ -54,9 +74,16 @@ body {
   line-height: 1.2;     /* aproxima as linhas */
 }
 
+.logo-fj {
+  display: flex;
+  justify-content: center;
+}
+
 .logo-fj img {
-  height: 140px;  /* aumenta a altura */
-  width: 280px;   /* aumenta a largura */
+  width: min(360px, 100%);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.22));
 }
 
 .dica-eletrica {
@@ -64,12 +91,31 @@ body {
   padding: 4px;
   font-weight: bold;
   color: rgb(0, 0, 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.dica-eletrica__faixa {
+  display: inline-block;
+  min-width: 100%;
+  padding-left: 100%;
+  animation: dica-scroll 28s linear infinite;
+}
+
+@keyframes dica-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 /* === SEÇÕES GERAIS === */
 section {
   max-width: 1340px;        /* largura máxima da caixa */
-  width: 100%;              /* ocupa até o limite, mas não a tela toda */
+  width: calc(100% - 32px); /* ocupa até o limite, mas não cola na borda */
   box-sizing: border-box;
   padding: 40px 20px;
   margin: 40px auto;        /* centraliza e cria espaço entre as sections */
@@ -145,8 +191,8 @@ section p, section ul {
 /* === TRABALHOS === */
 .trabalhos img,
 .trabalhos video {
-  width: 180px;
-  height: 120px;          /* altura fixa */
+  width: 220px;
+  height: 150px;          /* altura fixa */
   object-fit: cover;      /* corta e ajusta para caber */
   margin: 5px;
   border-radius: 8px;
@@ -161,12 +207,43 @@ section p, section ul {
   gap: 10px;
   padding-bottom: 10px;
   -webkit-overflow-scrolling: touch; /* suaviza no iOS */
+  scrollbar-color: #005eff #111827;
+  scrollbar-width: thin;
 }
 
 #trabalhos .trabalhos img,
 #trabalhos .trabalhos video {
   flex: 0 0 auto;
   scroll-snap-align: center;
+}
+
+.galeria-controles {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.slider-btn {
+  width: 42px;
+  height: 38px;
+  border: 1px solid #005eff;
+  border-radius: 6px;
+  background: #181e2a;
+  color: #00d4ff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.slider-btn:hover,
+.slider-btn:focus-visible {
+  background: #005eff;
+  color: #fff;
+  outline: none;
+  transform: translateY(-1px);
 }
 
 /* No mobile, manter o slider (não usar grid) */
@@ -218,6 +295,11 @@ section p, section ul {
   font-size: 15px;
 }
 
+.avaliacao textarea {
+  min-height: 104px;
+  resize: vertical;
+}
+
 .avaliacao button {
   margin-top: 10px;
   background: #005eff;
@@ -252,6 +334,7 @@ section p, section ul {
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
   text-align: left;
   max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .cliente .avatar {
@@ -267,6 +350,7 @@ section p, section ul {
   max-width: 300px;
   border-left: 5px solid #005eff;
   text-align: left;
+  overflow-wrap: anywhere;
 }
 
 .cliente.mulher .mensagem {
@@ -298,6 +382,19 @@ section p, section ul {
   font-size: 15px;
 }
 
+.formulario textarea {
+  resize: vertical;
+}
+
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus,
+.avaliacao input:focus,
+.avaliacao select:focus,
+.avaliacao textarea:focus {
+  box-shadow: 0 0 0 3px rgba(0, 94, 255, 0.35);
+}
+
 /* Botão estilo WhatsApp */
 .formulario button {
   background: #25D366;   /* verde oficial do WhatsApp */
@@ -327,7 +424,7 @@ section p, section ul {
 
 .menu-navegacao {
   display: flex;
-  flex-wrap: nowrap;     /* impede quebrar para baixo */
+  flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
   background-color: #181e2a;
@@ -350,10 +447,6 @@ section p, section ul {
 .menu-navegacao a:hover {
   background-color: #005eff;
   color: white;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 /* === UTILITÁRIOS DE TEXTO (EXTRA) === */
@@ -398,6 +491,10 @@ footer {
 
 /* === RESPONSIVIDADE PARA CELULAR === */
 @media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+
   .slide-foto {
     width: 100%;
     height: 100%;
@@ -409,7 +506,8 @@ footer {
   .header-novo {
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 18px 16px;
+    gap: 14px;
   }
 
   .header-fotos-slider {
@@ -419,11 +517,12 @@ footer {
 
   .header-info-direita {
     width: 100%;
+    min-width: 0;
     margin-top: 12px;
   }
 
   .logo-fj img {
-    width: 200px;
+    width: min(300px, 100%);
     height: auto;
   }
 
@@ -434,15 +533,17 @@ footer {
   }
 
   .menu-navegacao a {
-    flex: 1 1 100%;
+    flex: 1 1 calc(50% - 10px);
     text-align: center;
     padding: 8px;
+    white-space: normal;
   }
 
   /* Seções com menos margem */
   section {
     margin: 20px auto;
-    padding: 20px;
+    padding: 18px 16px;
+    width: calc(100% - 20px);
   }
 
   section h1, section h2, section h3 {
@@ -453,10 +554,24 @@ footer {
     font-size: 1.1em;
   }
 
+  .text-32 { font-size: 1.45em !important; }
+  .text-28 { font-size: 1.2em !important; }
+
+  #trabalhos .trabalhos {
+    gap: 8px;
+  }
+
+  .trabalhos img,
+  .trabalhos video {
+    width: 78vw;
+    max-width: 320px;
+    height: 190px;
+  }
+
   /* Área de avaliações adaptável */
   .avaliacoes-container {
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
   }
 
   .comentarios {
@@ -466,6 +581,10 @@ footer {
 
   .avaliacao {
     max-width: 100%;
+  }
+
+  .cliente .mensagem {
+    max-width: none;
   }
 
   /* Formulário de orçamento adaptável */
@@ -479,6 +598,29 @@ footer {
   }
 }
 
-  
+@media (max-width: 420px) {
+  .menu-navegacao a {
+    flex-basis: 100%;
+  }
 
+  .trabalhos img,
+  .trabalhos video {
+    width: 82vw;
+    height: 170px;
+  }
+}
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .dica-eletrica__faixa {
+    animation: none;
+    padding-left: 0;
+  }
+
+  .slide-foto {
+    transition: none;
+  }
+}

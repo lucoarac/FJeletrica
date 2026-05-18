@@ -3,27 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serviços Elétricos Profissionais - 28 anos de experiência</title>
+  <meta name="description" content="Serviços elétricos profissionais em Salvador: instalações, projetos, automação, painéis, energia solar, manutenção preventiva e corretiva." />
+  <title>Fábio Jean | Serviços Elétricos Profissionais</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
 
   <header class="header-novo">
-    <div class="header-fotos-slider">
-      <div class="slide-foto active" style="background-image: url('imagens/projeto.jpg');"></div>
-      <div class="slide-foto" style="background-image: url('imagens/executado.jpg');"></div>
-      <div class="slide-foto" style="background-image: url('imagens/quadro1.jpg');"></div>
-      <div class="slide-foto" style="background-image: url('imagens/instalacao_solar.jpg');"></div>
-      <div class="slide-foto" style="background-image: url('imagens/trabalho4.jpg');"></div>
-      <div class="slide-foto" style="background-image: url('imagens/trabalho5.jpg');"></div>
+    <div class="header-fotos-slider" id="headerSlider" aria-label="Fotos de serviços elétricos realizados">
+      <div class="slide-foto active" style="background-image: url('imagens/projeto.jpg');" role="img" aria-label="Projeto elétrico técnico"></div>
     </div>
     <div class="header-info-direita">
 	  <div class="logo-fj">
-        <img src="imagens/logo_fj.svg" alt="Logo FJ">
+        <img src="logo_fj.svg" alt="Logo Fábio Jean Serviços Elétricos" width="360" height="160" decoding="async">
       </div>
       <div class="info-header text-center">
-        <h1 class="text-32 text-neon-azul">FABIO JEAN RESP.TECNICO</h1>
+        <h1 class="text-32 text-neon-azul">FÁBIO JEAN RESP. TÉCNICO</h1>
         <p class="text-28 text-neon-azul">Especialista em Instalações Elétricas</p>
         <span class="text-28 text-neon-azul">Segurança Sempre em Primeiro Lugar</span>
         <div class="text-28 text-neon-azul">fabiojeanc@gmail.com</div>
@@ -33,11 +29,11 @@
 
   <!-- Dica interativa -->
   <div class="dica-eletrica">
-    <marquee behavior="scroll" direction="left" scrollamount="6">
+    <div class="dica-eletrica__faixa">
       ⚡ Dica: Sempre revise a rede elétrica antes de instalar novos equipamentos! | Disjuntores são proteção, não economia! | 🔌 Cuidado com extensões e sobrecargas!
-    </marquee>
+    </div>
   </div>
-  
+
   <nav class="menu-navegacao">
   <a href="#empresa">Sobre a Empresa</a>
   <a href="#mim">Sobre Mim</a>
@@ -51,7 +47,7 @@
 
   <section id="empresa">
     <h2>Sobre a Empresa</h2>
-    <p>Há quase três décadas, levamos energia com segurança e confiança para residências, empresas e indústrias. Oferecemos soluções completas em instalações elétricas, automação, painéis, redes e energia solar, sempre com qualidade e compromisso.
+    <p>Há quase três décadas, levamos energia com segurança e confiança para residências, empresas e indústrias. Oferecemos soluções completas em instalações elétricas, automação, painéis, redes e energia solar, sempre com qualidade e compromisso.</p>
     <p>
    👉 Entre em contato e garanta eficiência, economia e tecnologia no seu próximo projeto.
    </p>
@@ -60,8 +56,8 @@
   <section id="mim">
     <h2>Sobre Mim</h2>
     <p>
-	Sou eletrotécnico com anos de dedicação prática no setor elétrico. Minha trajetória é marcada por compromisso, ética e proximidade com cada cliente. 
-    Mais do que executar serviços, busco entender a real necessidade de cada projeto e oferecer soluções seguras e personalizadas. 
+	Sou eletrotécnico com anos de dedicação prática no setor elétrico. Minha trajetória é marcada por compromisso, ética e proximidade com cada cliente.
+    Mais do que executar serviços, busco entender a real necessidade de cada projeto e oferecer soluções seguras e personalizadas.
     Acredito que confiança se constrói no dia a dia, unindo conhecimento técnico, clareza na comunicação e respeito ao cliente.
    </p>
   </section>
@@ -69,35 +65,32 @@
   <section id="servicos" class="servicos">
     <h2>Serviços Oferecidos</h2>
     <ul>
-	  <li>Especialista Auto Cad,Auto Cad 3D</li>
-	  <li>Leitura e Modificações Projetos e Diagramas</li>
+	  <li>Especialista em AutoCAD e AutoCAD 3D</li>
+	  <li>Leitura e modificações de projetos e diagramas</li>
       <li>Elétrica Residencial</li>
       <li>Elétrica Predial</li>
       <li>Elétrica Industrial</li>
-      <li>Instalação de Placas Solares,Sistema On-grid off-grid</li>
-      <li>Automação Residencial,Predial</li>
-      <li>Comandos Elétricos,Acionamento de Motores</li>
+      <li>Instalação de placas solares, sistema on-grid e off-grid</li>
+      <li>Automação residencial e predial</li>
+      <li>Comandos elétricos e acionamento de motores</li>
       <li>Aterramentos e SPDA</li>
       <li>Cabeamento de Redes Estruturadas</li>
-      <li>CFTV,Câmeras,Interfones,Centrais de Alarme</li>
-      <li>Manutenções Preventivas e Corretivas</li>
-	  <li>SPDA</li>
+      <li>CFTV, câmeras, interfones e centrais de alarme</li>
+      <li>Manutenções preventivas e corretivas</li>
+	  <li>Inspeções, adequações e laudos elétricos</li>
     </ul>
   </section>
-
   <section id="trabalhos">
     <h2>Trabalhos e Projetos Realizados</h2>
-    <div class="trabalhos">
-      <img src="imagens/comando1.jpg" alt="comando1 em uso">
-      <img src="imagens/instalacao_solar.jpg" alt="instalação de sistema solar">
-      <img src="imagens/quadro1.jpg" alt="quadro1 em uso">
-      <img src="imagens/novo_trabalho1.jpg" alt="novo trabalho 1">
-      <img src="imagens/novo_trabalho2.jpg" alt="novo trabalho 2">
-      <video controls width="300">
-        <source src="imagens/video1.mp4" type="video/mp4">
-        Seu navegador não suporta vídeo.
-      </video>
-    </div>
+    <div class="trabalhos" id="galeriaTrabalhos" aria-live="polite"></div>
+    <noscript>
+      <div class="trabalhos trabalhos-fallback">
+        <img src="imagens/comando1.jpg" alt="Comando elétrico em execução" loading="lazy" decoding="async">
+        <img src="imagens/instalacao_solar.jpg" alt="Instalação de sistema solar" loading="lazy" decoding="async">
+        <img src="imagens/quadro1.jpg" alt="Quadro elétrico organizado" loading="lazy" decoding="async">
+        <img src="imagens/novo_trabalho1.jpg" alt="Serviço elétrico realizado" loading="lazy" decoding="async">
+      </div>
+    </noscript>
   </section>
 
   <section id="alertas">
@@ -105,8 +98,8 @@
     <p>Não ignore os sinais de perigo! Fios expostos, tomadas aquecendo, disjuntores que desarmam com frequência e oscilações na rede elétrica são alertas claros de que algo está errado.
        Esses problemas podem parecer pequenos, mas escondem riscos sérios de choques, incêndios e prejuízos materiais. 👉 A solução é simples: conte com um profissional qualificado para revisar sua instalação, garantir sua segurança e evitar acidentes antes que seja tarde.</p>
   </section>
-  
-  
+
+
   <!-- CLIENTES SATISFEITOS -->
 <section id="clientes" class="clientes-satisfeitos">
   <h2>Clientes Satisfeitos</h2>
@@ -117,7 +110,7 @@
       <h3>Deixe sua Avaliação</h3>
       <form id="formAvaliacao" onsubmit="return enviarAvaliacao()">
         <label for="nomeCliente">Seu nome:</label>
-        <input type="text" id="nomeCliente" required placeholder="Ex: Carlos Souza">
+        <input type="text" id="nomeCliente" required maxlength="60" autocomplete="name" placeholder="Ex: Carlos Souza">
 
         <label for="generoCliente">Você é:</label>
         <select id="generoCliente" required>
@@ -127,7 +120,7 @@
         </select>
 
         <label for="comentarioCliente">Comentário:</label>
-        <textarea id="comentarioCliente" required placeholder="Escreva sua opinião..."></textarea>
+        <textarea id="comentarioCliente" required maxlength="280" placeholder="Escreva sua opinião..."></textarea>
 
         <button type="submit">Enviar Avaliação</button>
       </form>
@@ -158,16 +151,16 @@
   <section id="cursos">
     <h2>Cursos Gratuitos Recomendados</h2>
     <ul>
-      <li><a href="https://www.cursoemvideo.com/course/curso-de-eletricidade-basica/" target="_blank">Curso de Eletricidade Básica – Curso em Vídeo</a></li>
-      <li><a href="https://www.ev.org.br/cursos/eletricista-instalador" target="_blank">Curso de Eletricista Instalador – Fundação Bradesco</a></li>
-      <li><a href="https://ead.senai.br/cursos/eletricidade" target="_blank">Cursos de Eletricidade – SENAI EAD</a></li>
+      <li><a href="https://www.cursoemvideo.com/course/curso-de-eletricidade-basica/" target="_blank" rel="noopener noreferrer">Curso de Eletricidade Básica – Curso em Vídeo</a></li>
+      <li><a href="https://www.ev.org.br/cursos/eletricista-instalador" target="_blank" rel="noopener noreferrer">Curso de Eletricista Instalador – Fundação Bradesco</a></li>
+      <li><a href="https://ead.senai.br/cursos/eletricidade" target="_blank" rel="noopener noreferrer">Cursos de Eletricidade – SENAI EAD</a></li>
     </ul>
   </section>
 
   <section id="orcamento" class="orcamento">
   <h2>Solicitar Orçamento</h2>
   <form class="formulario" onsubmit="return sendToWhatsApp()">
-    <input type="text" id="nome" placeholder="Seu nome" required>
+    <input type="text" id="nome" placeholder="Seu nome" required maxlength="60" autocomplete="name">
     <select id="servico" required>
       <option value="">Tipo de serviço</option>
       <option>Projetos elétricos, Diagramas e DWG</option>
@@ -182,16 +175,16 @@
       <option>CFTV, Câmeras e Interfones</option>
       <option>Outros</option>
     </select>
-    <textarea id="mensagem" placeholder="Descreva o que precisa..." rows="4" required></textarea>
+    <textarea id="mensagem" placeholder="Descreva o que precisa..." rows="4" required maxlength="800"></textarea>
     <button type="submit">Enviar pelo WhatsApp</button>
   </form>
 </section>
 
   <footer>
-    © 2025 Serviços Elétricos Profissionais. Todos os direitos reservados.<br>
+    © <span id="anoAtual">2026</span> Serviços Elétricos Profissionais. Todos os direitos reservados.<br>
     Rua Tomaz Gonzaga, Pernambués, Salvador - BA
   </footer>
 
-  <script src="scripts.js"></script>
+  <script src="scripts.js" defer></script>
 </body>
 </html>
