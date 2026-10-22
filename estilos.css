@@ -624,3 +624,36 @@ footer {
     transition: none;
   }
 }
+
+/* === CONTATO RAPIDO (WhatsApp) === */
+.whatsapp-fixo {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 999;
+  background: #25d366;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+.whatsapp-fixo:hover,
+.whatsapp-fixo:focus-visible {
+  background: #1ebe5d;
+  outline: 3px solid #fff;
+}
+
+.contato-topo {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 18px;
+  background: #25d366;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+}

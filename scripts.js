@@ -2,54 +2,45 @@
   "use strict";
 
   const numeroWhatsApp = "5571992524338";
-  const maxComentarios = 5;
-  const avaliacoesStorageKey = "fj-avaliacoes-clientes";
   let intervaloCabecalhoId = null;
 
   const fotosCabecalho = [
-    { src: "imagens/projeto.jpg", alt: "Projeto elétrico técnico" },
-    { src: "imagens/executado.jpg", alt: "Instalação elétrica executada" },
-    { src: "imagens/quadro1.jpg", alt: "Quadro elétrico organizado" },
-    { src: "imagens/instalacao_solar.jpg", alt: "Instalação de sistema solar" },
-    { src: "imagens/comando1.jpg", alt: "Comando elétrico montado" },
-    { src: "imagens/novo_trabalho1.jpg", alt: "Serviço elétrico profissional" },
-    { src: "imagens/novo_trabalho2.jpg", alt: "Detalhe de instalação elétrica" },
-    { src: "imagens/trabalho5.jpg", alt: "Manutenção elétrica realizada" }
+    { src: "imagens/projeto.jpg", alt: "Planta de projeto elétrico de residência com legenda de pontos de iluminação" },
+    { src: "imagens/instalacao_solar.jpg", alt: "Usina solar fotovoltaica em campo aberto" },
+    { src: "imagens/novotrabalho13.jpg", alt: "Pavilhão coberto com estrutura de madeira e iluminação instalada" },
+    { src: "imagens/novotrabalho14.jpg", alt: "Pavilhão iluminado à noite com iluminação das áreas cobertas" },
+    { src: "imagens/novotrabalho17.jpg", alt: "Salão amplo com iluminação linear de LED no forro" },
+    { src: "imagens/novotrabalho26.jpg", alt: "Cubículo de média tensão instalado em subestação" }
   ];
 
+  // Somente fotos reais de obra. Renders 3D e imagens de banco ficaram de fora (ver LEIAME_CORRECOES.md).
   const fotosTrabalhos = [
-    { src: "imagens/comando1.jpg", alt: "Comando elétrico em execução" },
-    { src: "imagens/instalacao_solar.jpg", alt: "Instalação de sistema solar" },
-    { src: "imagens/quadro1.jpg", alt: "Quadro elétrico organizado" },
-    { src: "imagens/novo_trabalho1.jpg", alt: "Serviço elétrico realizado" },
-    { src: "imagens/novo_trabalho2.jpg", alt: "Acabamento de instalação elétrica" },
-    { src: "imagens/executado.jpg", alt: "Instalação elétrica executada" },
-    { src: "imagens/trabalho4.jpg", alt: "Trabalho elétrico finalizado" },
-    { src: "imagens/trabalho5.jpg", alt: "Manutenção elétrica com acabamento limpo" },
-    { src: "imagens/trabalho6.jpg", alt: "Detalhe de serviço elétrico" },
-    { src: "imagens/projeto.jpg", alt: "Projeto elétrico técnico" },
-    { src: "imagens/novotrabalho5.jpg", alt: "Serviço elétrico recente 5" },
-    { src: "imagens/novotrabalho6.jpg", alt: "Serviço elétrico recente 6" },
-    { src: "imagens/novotrabalho7.jpg", alt: "Serviço elétrico recente 7" },
-    { src: "imagens/novotrabalho8.jpg", alt: "Serviço elétrico recente 8" },
-    { src: "imagens/novotrabalho10.jpg", alt: "Serviço elétrico recente 10" },
-    { src: "imagens/novotrabalho11.jpg", alt: "Serviço elétrico recente 11" },
-    { src: "imagens/novotrabalho13.jpg", alt: "Serviço elétrico recente 13" },
-    { src: "imagens/novotrabalho14.jpg", alt: "Serviço elétrico recente 14" },
-    { src: "imagens/novotrabalho15.jpg", alt: "Serviço elétrico recente 15" },
-    { src: "imagens/novotrabalho16.jpg", alt: "Serviço elétrico recente 16" },
-    { src: "imagens/novotrabalho17.jpg", alt: "Serviço elétrico recente 17" },
-    { src: "imagens/novotrabalho18.jpg", alt: "Serviço elétrico recente 18" },
-    { src: "imagens/novotrabalho19.jpg", alt: "Serviço elétrico recente 19" },
-    { src: "imagens/novotrabalho20.jpg", alt: "Serviço elétrico recente 20" },
-    { src: "imagens/novotrabalho21.jpg", alt: "Serviço elétrico recente 21" },
-    { src: "imagens/novotrabalho22.jpg", alt: "Serviço elétrico recente 22" },
-    { src: "imagens/novotrabalho23.jpg", alt: "Serviço elétrico recente 23" },
-    { src: "imagens/novotrabalho24.jpg", alt: "Serviço elétrico recente 24" },
-    { src: "imagens/novotrabalho25.jpg", alt: "Serviço elétrico recente 25" },
-    { src: "imagens/novotrabalho26.jpg", alt: "Serviço elétrico recente 26" },
-    { src: "imagens/novotrabalho27.jpg", alt: "Serviço elétrico recente 27" },
-    { src: "imagens/cartao.visita.jpg", alt: "Cartão de visita profissional" }
+    { src: "imagens/novo_trabalho1.jpg", alt: "Quadro de distribuição industrial com barramentos e disjuntores montados" },
+    { src: "imagens/novo_trabalho2.jpg", alt: "Corredor com iluminação linear de LED embutida no forro" },
+    { src: "imagens/instalacao_solar.jpg", alt: "Usina solar fotovoltaica em campo aberto" },
+    { src: "imagens/novotrabalho5.jpg", alt: "Eletrocalha e infraestrutura de cabos no teto" },
+    { src: "imagens/novotrabalho6.jpg", alt: "Quadros de distribuição embutidos em parede com cabeamento organizado" },
+    { src: "imagens/novotrabalho7.jpg", alt: "Quadro de distribuição embutido com barramentos identificados" },
+    { src: "imagens/novotrabalho8.jpg", alt: "Poste de entrada de energia em obra rural com cobertura ao fundo" },
+    { src: "imagens/novotrabalho10.jpg", alt: "Painel de comando com contatores e dispositivos de proteção" },
+    { src: "imagens/novotrabalho11.jpg", alt: "Equipe em poste de rede de distribuição durante obra de rede elétrica" },
+    { src: "imagens/novotrabalho13.jpg", alt: "Pavilhão coberto com estrutura de madeira e iluminação instalada" },
+    { src: "imagens/novotrabalho14.jpg", alt: "Pavilhão iluminado à noite com iluminação das áreas cobertas" },
+    { src: "imagens/novotrabalho15.jpg", alt: "Obra de construção com área externa em acabamento" },
+    { src: "imagens/novotrabalho16.jpg", alt: "Infraestrutura elétrica embutida em parede de alvenaria durante obra" },
+    { src: "imagens/novotrabalho17.jpg", alt: "Salão amplo com iluminação linear de LED no forro" },
+    { src: "imagens/novotrabalho18.jpg", alt: "Fachada de edificação comercial atendida em obra elétrica" },
+    { src: "imagens/novotrabalho19.jpg", alt: "Quadro de comando com cabeamento identificado por cores" },
+    { src: "imagens/novotrabalho20.jpg", alt: "Quadro de comando com contatores e dispositivos de proteção" },
+    { src: "imagens/novotrabalho21.jpg", alt: "Usina solar em telhado ao entardecer" },
+    { src: "imagens/novotrabalho22.jpg", alt: "Inversor solar instalado em parede" },
+    { src: "imagens/novotrabalho23.jpg", alt: "Módulos fotovoltaicos instalados em cobertura" },
+    { src: "imagens/novotrabalho24.jpg", alt: "Quadro de comando com contatores, relés e fiação organizada" },
+    { src: "imagens/novotrabalho25.jpg", alt: "Quadro com disjuntor caixa moldada, DPS e barramentos" },
+    { src: "imagens/novotrabalho26.jpg", alt: "Cubículo de média tensão instalado em subestação" },
+    { src: "imagens/novotrabalho27.jpg", alt: "Forro com iluminação linear de LED embutida em ambiente amplo" },
+    { src: "imagens/projeto.jpg", alt: "Planta de projeto elétrico de residência com legenda de pontos de iluminação" },
+    { src: "imagens/cartao.visita.jpg", alt: "Cartão de visita: Fábio Jean, eletricista eletrotécnico, 71 99252-4338" }
   ];
 
   const videosTrabalhos = [
@@ -228,92 +219,6 @@
     galeria.insertAdjacentElement("afterend", controles);
   }
 
-  function criarComentario({ nome, genero, comentario }) {
-    const container = document.createElement("div");
-    const avatar = document.createElement("div");
-    const mensagem = document.createElement("div");
-    const quebra = document.createElement("br");
-    const autor = document.createElement("strong");
-
-    container.classList.add("cliente", genero);
-    avatar.classList.add("avatar");
-    avatar.textContent = genero === "homem" ? "👨‍🔧" : "👩‍🔧";
-
-    mensagem.classList.add("mensagem");
-    mensagem.append(document.createTextNode(comentario), quebra);
-    autor.textContent = `- ${nome}`;
-    mensagem.appendChild(autor);
-
-    container.append(avatar, mensagem);
-    return container;
-  }
-
-  function limitarComentarios() {
-    const comentariosDiv = document.querySelector(".comentarios");
-    if (!comentariosDiv) {
-      return;
-    }
-
-    while (comentariosDiv.children.length > maxComentarios) {
-      comentariosDiv.firstElementChild.remove();
-    }
-  }
-
-  function lerAvaliacoesSalvas() {
-    try {
-      return JSON.parse(localStorage.getItem(avaliacoesStorageKey)) || [];
-    } catch (error) {
-      return [];
-    }
-  }
-
-  function salvarAvaliacao(avaliacao) {
-    try {
-      const avaliacoes = lerAvaliacoesSalvas();
-      avaliacoes.push(avaliacao);
-      localStorage.setItem(
-        avaliacoesStorageKey,
-        JSON.stringify(avaliacoes.slice(-maxComentarios))
-      );
-    } catch (error) {
-      // O comentário continua aparecendo mesmo quando o navegador bloqueia armazenamento local.
-    }
-  }
-
-  function carregarAvaliacoesSalvas() {
-    const comentariosDiv = document.querySelector(".comentarios");
-    if (!comentariosDiv) {
-      return;
-    }
-
-    lerAvaliacoesSalvas().forEach((avaliacao) => {
-      comentariosDiv.appendChild(criarComentario(avaliacao));
-    });
-
-    limitarComentarios();
-  }
-
-  window.enviarAvaliacao = function enviarAvaliacao() {
-    const nome = document.getElementById("nomeCliente").value.trim();
-    const genero = document.getElementById("generoCliente").value;
-    const comentario = document.getElementById("comentarioCliente").value.trim();
-    const comentariosDiv = document.querySelector(".comentarios");
-
-    if (!nome || !genero || !comentario || !comentariosDiv) {
-      alert("Por favor, preencha todos os campos.");
-      return false;
-    }
-
-    const avaliacao = { nome, genero, comentario };
-    comentariosDiv.appendChild(criarComentario(avaliacao));
-    limitarComentarios();
-    salvarAvaliacao(avaliacao);
-
-    document.getElementById("formAvaliacao").reset();
-    alert("Avaliação enviada com sucesso!");
-    return false;
-  };
-
   window.sendToWhatsApp = function sendToWhatsApp() {
     const nome = document.getElementById("nome").value.trim();
     const servico = document.getElementById("servico").value;
@@ -324,7 +229,7 @@
       return false;
     }
 
-    const texto = `Olá, me chamo ${nome}.
+    const texto = `[Site] Olá, me chamo ${nome}.
 Gostaria de solicitar um orçamento para: *${servico}*.
 
 Descrição: ${mensagem}`;
@@ -338,8 +243,6 @@ Descrição: ${mensagem}`;
     iniciarSliderCabecalho();
     montarGaleriaTrabalhos();
     agendarAtualizacaoDiaria();
-    carregarAvaliacoesSalvas();
-    limitarComentarios();
 
     const anoAtual = document.getElementById("anoAtual");
     if (anoAtual) {
