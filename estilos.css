@@ -632,7 +632,7 @@ footer {
   bottom: 16px;
   z-index: 999;
   background: #25d366;
-  color: #fff;
+  color: #062b12;
   font-weight: 700;
   font-size: 16px;
   padding: 14px 22px;
@@ -652,8 +652,103 @@ footer {
   margin-top: 10px;
   padding: 8px 18px;
   background: #25d366;
-  color: #fff;
+  color: #062b12;
   font-weight: 700;
   border-radius: 6px;
   text-decoration: none;
+}
+
+/* Contraste: texto escuro sobre o verde do WhatsApp */
+#orcamento button {
+  color: #062b12;
+}
+
+/* Links dos cursos legiveis sobre fundo preto */
+#cursos a {
+  color: #4db8ff;
+}
+
+#cursos a:visited {
+  color: #c3a6ff;
+}
+
+#cursos a:hover,
+#cursos a:focus-visible {
+  color: #ffffff;
+}
+
+/* Formulario: mesma fonte e fundo nos campos */
+#orcamento textarea,
+#orcamento select {
+  font-family: inherit;
+  background: #ffffff;
+}
+
+/* Fotos clicaveis e ampliacao */
+#galeriaTrabalhos img {
+  cursor: zoom-in;
+}
+
+.ampliar-fundo {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.ampliar-fundo[hidden] {
+  display: none;
+}
+
+.ampliar-fundo img {
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.ampliar-fundo p {
+  color: #ffffff;
+  text-align: center;
+  max-width: 760px;
+  margin: 0;
+  font-size: 15px;
+}
+
+.ampliar-fechar {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border: 2px solid #00d4ff;
+  border-radius: 50%;
+  background: #181e2a;
+  color: #00d4ff;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* Menu compacto no celular: uma linha rolavel em vez de 7 linhas */
+@media (max-width: 768px) {
+  .menu-navegacao {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .menu-navegacao a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 10px 12px;
+  }
 }

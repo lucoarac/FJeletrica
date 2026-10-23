@@ -13,7 +13,7 @@
     { src: "imagens/novotrabalho26.jpg", alt: "Cubículo de média tensão instalado em subestação" }
   ];
 
-  // Somente fotos reais de obra. Renders 3D e imagens de banco ficaram de fora (ver LEIAME_CORRECOES.md).
+  // Fotos reais de obra + renders 3D do projeto executado (legendados como render). Imagens de banco ficaram de fora.
   const fotosTrabalhos = [
     { src: "imagens/novo_trabalho1.jpg", alt: "Quadro de distribuição industrial com barramentos e disjuntores montados" },
     { src: "imagens/novo_trabalho2.jpg", alt: "Corredor com iluminação linear de LED embutida no forro" },
@@ -40,6 +40,10 @@
     { src: "imagens/novotrabalho26.jpg", alt: "Cubículo de média tensão instalado em subestação" },
     { src: "imagens/novotrabalho27.jpg", alt: "Forro com iluminação linear de LED embutida em ambiente amplo" },
     { src: "imagens/projeto.jpg", alt: "Planta de projeto elétrico de residência com legenda de pontos de iluminação" },
+    { src: "imagens/comando1.jpg", alt: "Render 3D do projeto: ambiente integrado com iluminação em LED e forro de madeira (obra com instalação elétrica executada)" },
+    { src: "imagens/executado.jpg", alt: "Render 3D do projeto: sala com forro de madeira e iluminação em LED embutida (obra com instalação elétrica executada)" },
+    { src: "imagens/novotrabalho4.jpg", alt: "Render 3D do projeto: cozinha com bancada e iluminação em LED embutida (obra com instalação elétrica executada)" },
+    { src: "imagens/trabalho5.jpg", alt: "Render 3D do projeto arquitetônico: varanda com lustre (obra com instalação elétrica executada)" },
     { src: "imagens/cartao.visita.jpg", alt: "Cartão de visita: Fábio Jean, eletricista eletrotécnico, 71 99252-4338" }
   ];
 
@@ -219,6 +223,59 @@
     galeria.insertAdjacentElement("afterend", controles);
   }
 
+  function iniciarAmpliacao() {
+    const galeria = document.getElementById("galeriaTrabalhos");
+    if (!galeria) {
+      return;
+    }
+
+    const fundo = document.createElement("div");
+    const imagem = document.createElement("img");
+    const legenda = document.createElement("p");
+    const fechar = document.createElement("button");
+
+    fundo.className = "ampliar-fundo";
+    fundo.hidden = true;
+    fundo.setAttribute("role", "dialog");
+    fundo.setAttribute("aria-modal", "true");
+    fundo.setAttribute("aria-label", "Foto ampliada");
+    fechar.type = "button";
+    fechar.className = "ampliar-fechar";
+    fechar.textContent = "×";
+    fechar.setAttribute("aria-label", "Fechar foto");
+    fundo.append(fechar, imagem, legenda);
+    document.body.appendChild(fundo);
+
+    const fecharAmpliacao = () => {
+      fundo.hidden = true;
+      imagem.removeAttribute("src");
+    };
+
+    galeria.addEventListener("click", (evento) => {
+      const alvo = evento.target;
+      if (!(alvo instanceof HTMLImageElement)) {
+        return;
+      }
+      imagem.src = alvo.src;
+      imagem.alt = alvo.alt;
+      legenda.textContent = alvo.alt;
+      fundo.hidden = false;
+      fechar.focus();
+    });
+
+    fundo.addEventListener("click", (evento) => {
+      if (evento.target !== imagem) {
+        fecharAmpliacao();
+      }
+    });
+
+    document.addEventListener("keydown", (evento) => {
+      if (evento.key === "Escape" && !fundo.hidden) {
+        fecharAmpliacao();
+      }
+    });
+  }
+
   window.sendToWhatsApp = function sendToWhatsApp() {
     const nome = document.getElementById("nome").value.trim();
     const servico = document.getElementById("servico").value;
@@ -243,6 +300,7 @@ Descrição: ${mensagem}`;
     iniciarSliderCabecalho();
     montarGaleriaTrabalhos();
     agendarAtualizacaoDiaria();
+    iniciarAmpliacao();
 
     const anoAtual = document.getElementById("anoAtual");
     if (anoAtual) {
